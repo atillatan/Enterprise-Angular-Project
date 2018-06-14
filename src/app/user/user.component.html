@@ -1,0 +1,57 @@
+<h2>Users</h2>
+
+<!-- Entry -->
+<div class="entryDto w-75">
+  <form (ngSubmit)="postOrPut()">
+    <!-- form-group seperator -->
+    <div class="form-group row">
+      <label for="Name" class="col-2 col-form-label-sm">{{'Name' | translate}}</label>
+      <div class="col-10">
+        <input class="form-control form-control-sm" type="text" [(ngModel)]="entryDto.Name" name="Name" id="Name"
+          placeholder="Name">
+      </div>
+    </div>
+      <!-- form-group seperator -->
+      <div class="form-group row">
+        <label for="LastName" class="col-2 col-form-label-sm">{{'Last Name' | translate}}</label>
+        <div class="col-10">
+          <input class="form-control form-control-sm" type="text" [(ngModel)]="entryDto.LastName" name="LastName" id="LastName"
+            placeholder="LastName">
+        </div>
+      </div> 
+    <!-- form-group seperator -->
+    <div class="text-right">
+      <button type="submit" class="btn btn-success btn-sm" ngbTooltip="Save"><i class="material-icons" >save</i></button>&nbsp;
+      <button type="button" class="btn btn-primary btn-sm" ngbTooltip="Cancel" (click)="resetEntry()"><i class="material-icons">refresh</i></button>
+    </div>
+  </form>
+</div>
+<!-- Entry -->
+<br>
+
+
+<!-- List -->
+<div class=”container”>
+  <table class="table table-bordered table-sm m-0">
+    <thead style="background-color:#b4cff1">
+      <tr>
+        <th>#</th>
+        <th>{{'Name' | translate}}</th>
+        <th>{{'Last Name' | translate}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dto of dtoList; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ dto.Name }}</td>     
+        <td>{{ dto.LastName }}</td>     
+        <td>
+          <button type="button" class="btn btn-sm btn-outline-primary" (click)="get(dto)" ngbTooltip="Edit row"><i class="material-icons">border_color</i></button>&nbsp;
+          <button type="button" class="btn btn-sm btn-outline-danger" (click)="delete(dto)" ngbTooltip="Delete row"><i class="material-icons">cancel</i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- List -->

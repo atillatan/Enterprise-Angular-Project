@@ -1,0 +1,32 @@
+<div *ngIf="loading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<mat-toolbar color="primary">
+  <button mat-icon-button routerLink="/home">
+    <mat-icon>home</mat-icon>
+  </button>
+  <button mat-button routerLink="/home">Home</button>
+  <button mat-button routerLink="/contact">Contact</button>
+  <button mat-button routerLink="/user">Users</button>
+  <button mat-button [matMenuTriggerFor]="menu">Languages</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="langChange('en-US')">English</button>
+    <button mat-menu-item (click)="langChange('tr-TR')">Turkce</button>
+  </mat-menu>
+  <button mat-button  *ngIf="!isAuthorized" (click)="login()">
+    <i class="material-icons">exit_to_app</i> Login </button>
+  <button mat-button *ngIf="isAuthorized" (click)="logout()">
+    <i class="material-icons">power_settings_new</i> Logout</button>
+</mat-toolbar>
+ 
+
+<div class="animate-bottom">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+ 
+
