@@ -1,3 +1,4 @@
+<div class="animate-bottom">
 <h2>Users</h2>
 
 <!-- Entry -->
@@ -48,10 +49,11 @@
         <td>{{ dto.LastName }}</td>     
         <td>
           <button type="button" class="btn btn-sm btn-outline-primary" (click)="get(dto)" ngbTooltip="Edit row"><i class="material-icons">border_color</i></button>&nbsp;
-          <button type="button" class="btn btn-sm btn-outline-danger" (click)="delete(dto)" ngbTooltip="Delete row"><i class="material-icons">cancel</i></button>
+          <button type="button" class="btn btn-sm btn-outline-danger" (click)="openDialog(dto)" ngbTooltip="Delete row"><i class="material-icons">cancel</i></button>          
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 <!-- List -->
+</div>

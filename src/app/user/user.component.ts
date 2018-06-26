@@ -3,6 +3,8 @@ import { CrudService } from '../services/crud.service';
 import { PagingDto, ServiceResponse, BaseDto, ResultType } from '../code/dto';
 import { ActivatedRoute } from '@angular/router';
 import { Location, getLocaleDateTimeFormat } from '@angular/common';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-user',
@@ -20,7 +22,8 @@ export class UserComponent implements OnInit {
   constructor(
     private crudService: CrudService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    public dialog: MatDialog,
   ) {
     this.list();
   }
@@ -87,6 +90,20 @@ export class UserComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  openDialog(dto: any): void {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      width: '250px',
+      data: { dto: dto }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.confirmation === 'YES') {
+        this.delete(result.dto);
+      }
+      console.log('The dialog was closed');
+    });
   }
 
 }

@@ -33,6 +33,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent, ExampleDialogComponent } from './contact/contact.component';
 import { UserComponent } from './user/user.component';
 import { ApiInterceptor } from './services/api.intercepter';
+import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 
 export function initialize(configService: ConfigService): Function {
   return () => configService.loadConfig(`http://localhost:5001/api/js/json/config.js`);
@@ -70,7 +71,8 @@ export function loadTranslate(http: HttpClient) {
     HomeComponent,
     ContactComponent,
     ExampleDialogComponent,
-    UserComponent
+    UserComponent,
+    DeleteConfirmationComponent
 
   ],
   providers: [
@@ -83,7 +85,7 @@ export function loadTranslate(http: HttpClient) {
     { provide: LOCALE_ID, useValue: 'tr' }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ExampleDialogComponent]
+  entryComponents: [ExampleDialogComponent, DeleteConfirmationComponent]
 })
 export class AppModule {
 

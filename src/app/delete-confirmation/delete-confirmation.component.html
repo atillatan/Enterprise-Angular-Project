@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{'LBL_WARNING' | translate}}</h1>
+<div mat-dialog-content>
+  <p>{{ 'ARE_YOU_SURE' | translate }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick(data.dto)" cdkFocusInitial>{{ 'NO' | translate}}</button>
+  <button mat-button (click)="onYesClick(data.dto)">{{ 'YES' | translate }}</button>
+</div>
