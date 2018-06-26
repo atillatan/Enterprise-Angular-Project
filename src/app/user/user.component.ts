@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
 
   dtoList: any = [];
   entryDto: any = {};
-  serarchDto: BaseDto = new BaseDto();
+  searchDto: BaseDto = new BaseDto();
   pagingDto: PagingDto = new PagingDto();
 
   constructor(
@@ -64,7 +64,7 @@ export class UserComponent implements OnInit {
   }
 
   list(): void {
-    this.crudService.list(this.serarchDto, this.pagingDto, `${this.url}/listuser`).subscribe(
+    this.crudService.list(this.searchDto, this.pagingDto, `${this.url}/listuser`).subscribe(
       serviceResponse => {
         this.dtoList = serviceResponse.Data;
       }
