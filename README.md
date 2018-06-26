@@ -92,3 +92,7 @@ export enum ResultType {
 
 
 You can use the following tutorial for making Enterprise Angular Project [http://atilla.tanrikulu.biz/Making-Enterprise-Angular-Project-step-by-step/](http://atilla.tanrikulu.biz/Making-Enterprise-Angular-Project-step-by-step/)
+
+
+
+![ea-interface.PNG](ea-interface.PNG)
