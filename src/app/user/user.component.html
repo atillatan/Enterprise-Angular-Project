@@ -23,6 +23,14 @@
       </mat-form-field>
     </div>
     <!-- form-group separator -->
+    <div style="display:flex; flex-direction: column;">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="{{'Choose' | translate}}" [(ngModel)]="entryDto.BirthDate" name="BirthDate" id="BirthDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <!-- form-group separator -->
     <div style="text-align: right;">
       <button type="submit" matTooltip="{{'Save' | translate}}" mat-raised-button color="primary">
         <i class="material-icons">save</i>
@@ -38,13 +46,14 @@
 
   <!-- List -->
   <div class=”container”>
-    <table class="table table-bordered table-sm m-0">
+    <table class="table table-bordered table-sm m-0" matSort (matSortChange)="sortData($event)">
       <thead style="background-color:#b4cff1">
         <tr>
           <th>#</th>
-          <th>{{'Name' | translate}}</th>
-          <th>{{'Last Name' | translate}}</th>
-          <th></th>
+          <th mat-sort-header="Name">{{'Name' | translate}}</th>
+          <th mat-sort-header="LastName">{{'Last Name' | translate}}</th>
+          <th mat-sort-header="BirthDate">{{'Birth Date' | translate}}</th>
+          <th>-</th>
         </tr>
       </thead>
       <tbody>
@@ -52,12 +61,13 @@
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ dto.Name }}</td>
           <td>{{ dto.LastName }}</td>
+          <td>{{ dto.BirthDate | date: 'medium' }}</td>
           <td>
-            <button type="button" matTooltip="{{'Edit Row' | translate}}" mat-mini-fab  color="primary" (click)="get(dto)">
+            <button type="button" matTooltip="{{'Edit Row' | translate}}" mat-mini-fab color="primary" (click)="get(dto)">
               <i class="material-icons">border_color</i>
             </button>
             &nbsp;
-            <button type="button" matTooltip="{{'Delete Row' | translate}}" mat-mini-fab  (click)="openDialog(dto)">
+            <button type="button" matTooltip="{{'Delete Row' | translate}}" mat-mini-fab (click)="openDialog(dto)">
               <i class="material-icons">cancel</i>
             </button>
           </td>
@@ -66,4 +76,9 @@
     </table>
   </div>
   <!-- List -->
+  <mat-paginator [length]="pagingDto.count"
+    [pageSize]="pagingDto.pageSize"
+    [pageSizeOptions]="[10, 15, 20, 50]"
+    (page)="changePage($event)">
+  </mat-paginator>
 </div>

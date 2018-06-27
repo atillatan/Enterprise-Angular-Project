@@ -43,7 +43,7 @@ This project demonstrates how to build Enterprise Grade Angular Project.
 
 - **Internationalization:** By default, Angular uses the locale en-US, which is English as spoken in the United States of America, if you want to use another locale you can use `LOCALE_ID`
 
-- **Application Loading Animation:** SPA application always use loading animation for the first visit.
+- **Application Loading Animation:** SPA applications always use loading animation for the first visit.
 
 - **Page Load Animation:** Using page routing animation is a common approach for SPA. The purpose of animation  related UX  concerns
 
@@ -85,11 +85,11 @@ export enum ResultType {
 
 - **ToolTip:** Sometimes we use Icons on the user interface, in enterprise application we have to show icon meaning with tooltip.
 
-- **Data Table or Data Grid:** If we want to make enterprise application, we usually show data with data grid or data table.
+- **Data Table or Data Grid:** If we want to make enterprise application, we usually show data with data grid or data table. optional: sorting data with table header, exporting functionality
 
 - **Database Pagination:** Sometimes we have a lot of record on the database table, we don't show all record on the user interface, it's effect application performance and usability of the application. Pagination is the best way to show data.
 
-
+- **Dashboard:** SPA applications always use Dashboard, you can add DashBoard to your project  the following tutorial [https://github.com/creativetimofficial/material-dashboard?utm_campaign=explore-email&utm_medium=email&utm_source=newsletter&utm_term=daily](https://github.com/creativetimofficial/material-dashboard?utm_campaign=explore-email&utm_medium=email&utm_source=newsletter&utm_term=daily)
 
 You can use the following tutorial for making Enterprise Angular Project [http://atilla.tanrikulu.biz/Making-Enterprise-Angular-Project-step-by-step/](http://atilla.tanrikulu.biz/Making-Enterprise-Angular-Project-step-by-step/)
 

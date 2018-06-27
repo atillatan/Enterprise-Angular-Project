@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CrudService } from '../services/crud.service';
 import { PagingDto, ServiceResponse, BaseDto, ResultType } from '../code/dto';
-import { ActivatedRoute } from '@angular/router';
 import { Location, getLocaleDateTimeFormat } from '@angular/common';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { PageEvent, MatDialog, MatDialogRef, MAT_DIALOG_DATA, Sort } from '@angular/material';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 
 @Component({
@@ -21,7 +20,6 @@ export class UserComponent implements OnInit {
 
   constructor(
     private crudService: CrudService,
-    private route: ActivatedRoute,
     private location: Location,
     public dialog: MatDialog,
   ) {
@@ -67,6 +65,7 @@ export class UserComponent implements OnInit {
     this.crudService.list(this.searchDto, this.pagingDto, `${this.url}/listuser`).subscribe(
       serviceResponse => {
         this.dtoList = serviceResponse.Data;
+        this.pagingDto.count = serviceResponse.TotalCount;
       }
     );
   }
@@ -105,5 +104,38 @@ export class UserComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
+  changePage(pageEvent: PageEvent): void {
+    this.pagingDto.count = pageEvent.length;
+    this.pagingDto.pageSize = pageEvent.pageSize;
+    this.pagingDto.pageNumber = pageEvent.pageIndex + 1;
+    this.list();
+  }
+
+
+  sortData(sort: Sort): void {
+    if (!sort.active || sort.direction === '') {
+      return;
+    }
+    // local paging
+    this.dtoList = this.dtoList.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'Name': return this.compare(a.Name, b.Name, isAsc);
+        case 'LastName': return this.compare(a.LastName, b.LastName, isAsc);
+        case 'BirthDate': return this.compare(a.BirthDate, b.BirthDate, isAsc);
+        default: return 0;
+      }
+    });
+
+    // Database paging
+    // this.pagingDto.order  = sort.direction;
+    // this.list();
+  }
+
+  compare(a, b, isAsc) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
+
 
 }

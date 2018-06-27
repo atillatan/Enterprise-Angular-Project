@@ -82,7 +82,7 @@ export function loadTranslate(http: HttpClient) {
     { provide: APP_INITIALIZER, useFactory: initialize, multi: true, deps: [ConfigService] },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
-    { provide: LOCALE_ID, useValue: 'tr' }
+    { provide: LOCALE_ID, useValue: 'en-US' }
   ],
   bootstrap: [AppComponent],
   entryComponents: [ExampleDialogComponent, DeleteConfirmationComponent]
