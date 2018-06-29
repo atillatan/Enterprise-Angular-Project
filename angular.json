@@ -28,11 +28,10 @@
               "src/assets/custom.css",
               "src/assets/toastr.css"
             ],
-            "scripts": [               
-              "node_modules/popper.js/dist/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/custom-utility.js",
-              "src/assets/custom-module.js"
+            "scripts": [    
+              "node_modules/jquery/dist/jquery.slim.min.js",           
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {

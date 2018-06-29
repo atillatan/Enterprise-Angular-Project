@@ -23,17 +23,20 @@ import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule, TranslateLoader, TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AppComponent } from './root/app.component';
-import { ConfigService } from './services/config.service';
 import { AuthModule, OidcSecurityService, OpenIDImplicitFlowConfiguration, AuthWellKnownEndpoints } from 'angular-auth-oidc-client';
 import { AuthInterceptor } from './services/auth.intercepter';
 import { AuthGuard } from './services/auth.guard';
+import { ApiInterceptor } from './services/api.intercepter';
+import { ConfigService } from './services/config.service';
+import { CrudService } from './services/crud.service';
+
+import { AppComponent } from './root/app.component';
+import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent, ExampleDialogComponent } from './contact/contact.component';
 import { UserComponent } from './user/user.component';
-import { ApiInterceptor } from './services/api.intercepter';
-import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
+
 
 export function initialize(configService: ConfigService): Function {
   return () => configService.loadConfig(`http://localhost:5001/api/js/json/config.js`);
@@ -77,6 +80,7 @@ export function loadTranslate(http: HttpClient) {
   ],
   providers: [
     ConfigService,
+    CrudService,
     OidcSecurityService,
     AuthGuard,
     { provide: APP_INITIALIZER, useFactory: initialize, multi: true, deps: [ConfigService] },

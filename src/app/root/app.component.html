@@ -11,8 +11,8 @@
   <button mat-button routerLink="/user">Users</button>
   <button mat-button [matMenuTriggerFor]="menu">Languages</button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="langChange('en-US')">English</button>
-    <button mat-menu-item (click)="langChange('tr-TR')">Turkce</button>
+    <button mat-menu-item (click)="langChange('en','US')">English</button>
+    <button mat-menu-item (click)="langChange('tr','TR')">Turkce</button>
   </mat-menu>
   <button mat-button  *ngIf="!isAuthorized" (click)="login()">
     <i class="material-icons">exit_to_app</i> Login </button>

@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ToastrService } from 'ngx-toastr';
+import { CustomModule } from '../../assets/custom-module.js';
+import * as utils from '../../assets/custom-utility.js';
 
 @Component({
   selector: 'app-contact',
@@ -9,8 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 export class ContactComponent implements OnInit {
 
   animal: string;
+  core: CustomModule = new CustomModule();
 
-  constructor(public dialog: MatDialog, private toastr: ToastrService) { }
+  constructor(public dialog: MatDialog, private toastr: ToastrService) {
+
+    utils.testMethod1('testMethod1');
+    this.core.testMethod1('testMethod1');
+  }
 
   ngOnInit() {
     setTimeout(() => this.toastr.success('Hello world!', 'sdfasdfasd'));

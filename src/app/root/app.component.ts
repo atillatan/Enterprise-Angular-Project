@@ -92,8 +92,9 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
-  langChange(lang: string) {
-    this.translateService.use(lang);
+  langChange(language: string, country: string) {
+    this.translateService.use(language + '-' + country);
+    console.log('set language: ' + language);
   }
 
 
