@@ -1,6 +1,7 @@
 # Enterprise Angular Project
 
 This project demonstrates how to build Enterprise Grade Angular Project.
+[http://atilla.tanrikulu.biz/Making-Enterprise-Angular-Project-step-by-step/](http://atilla.tanrikulu.biz/Making-Enterprise-Angular-Project-step-by-step/)
 
 ## When we want to build Enterprise Project, We always need following pieces/functionalities 
 
