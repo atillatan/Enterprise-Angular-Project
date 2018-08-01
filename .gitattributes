@@ -1,1 +1,1 @@
-*.cs linguist-language=C#
+*.ts linguist-language=TypeScript
