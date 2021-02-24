@@ -1,9 +1,9 @@
-# Enterprise Angular Project
+# Build an Enterprise Grade Angular Project
 
-This project demonstrates how to build Enterprise Grade Angular Project.
+This project demonstrates how to build an Enterprise Grade Angular Project.
 [http://atilla.tanrikulu.biz/Making-Enterprise-Angular-Project-step-by-step/](http://atilla.tanrikulu.biz/Making-Enterprise-Angular-Project-step-by-step/)
 
-## When we want to build Enterprise Project, We always need following pieces/functionalities 
+## When we want to build an Enterprise Project, We always need following pieces/functionalities 
 
 - **User Interface and Design:** Bootstrap and Material Design give you easily create beautiful user interfaces, nowadays these two libraries is best practices
 
